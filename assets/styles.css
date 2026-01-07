@@ -182,3 +182,45 @@ img{
 .kpi .pill span{ color:rgba(255,255,255,.70); font-size:.95rem; }
 body { outline: 6px solid red !important; }
 :root { --base-font-size: 28px !important; }
+/* ===== FIX: table readability (no white/washed rows) ===== */
+.markdown-section table{
+  background: rgba(255,255,255,.04) !important;
+}
+
+.markdown-section tbody tr{
+  background: rgba(255,255,255,.02) !important;
+}
+
+.markdown-section tbody tr:nth-child(even){
+  background: rgba(255,255,255,.045) !important;
+}
+
+.markdown-section th,
+.markdown-section td{
+  color: rgba(255,255,255,.92) !important;
+}
+
+.markdown-section td{
+  font-weight: 500;
+}
+
+/* hover */
+.markdown-section tbody tr:hover{
+  background: rgba(124,92,255,.12) !important;
+}
+/* ===== FIX: right-side empty space / layout width ===== */
+.content{
+  max-width: var(--content-max-width) !important;
+  margin: 0 auto !important;     /* center */
+  padding-right: 22px !important; /* reduce weird gaps */
+}
+
+.markdown-section{
+  max-width: 100% !important;    /* let content fill .content */
+}
+
+/* prevent horizontal overflow caused by code/img/table */
+.markdown-section,
+.content{
+  box-sizing: border-box !important;
+}
