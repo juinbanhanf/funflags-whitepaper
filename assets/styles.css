@@ -1,6 +1,6 @@
-/* FunFlags Whitepaper — English only */
+/* FunFlags Whitepaper — English only (Styled Docs) */
 :root{
-  --base-font-size: 18px;      /* <-- change this to make text bigger/smaller */
+  --base-font-size: 20px;      /* 👈 overall text size */
   --sidebar-width: 320px;
   --content-max-width: 1040px;
 
@@ -8,6 +8,7 @@
   --brand2:#22c55e;
   --bg0: #070A12;
   --bg1: #0B1020;
+
   --card: rgba(255,255,255,.06);
   --border: rgba(255,255,255,.12);
   --text: rgba(255,255,255,.92);
@@ -15,55 +16,51 @@
 }
 
 body{
-  background: radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.25), transparent 60%),
-              radial-gradient(1000px 700px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
-              linear-gradient(180deg, var(--bg0), var(--bg1));
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.25), transparent 60%),
+    radial-gradient(1000px 700px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
   color: var(--text);
 }
 
+/* Sidebar */
 .sidebar{
+  width: var(--sidebar-width) !important;
   background: rgba(10,12,20,.72) !important;
   backdrop-filter: blur(10px);
   border-right: 1px solid var(--border) !important;
 }
-
-.sidebar-nav a{
-  color: var(--muted) !important;
-}
-.sidebar-nav a:hover{
-  color: var(--text) !important;
-}
+.sidebar-nav a{ color: var(--muted) !important; }
+.sidebar-nav a:hover{ color: var(--text) !important; }
 .sidebar-nav li.active > a{
   color: #fff !important;
   border-right: 3px solid var(--brand) !important;
 }
 
+/* Content typography */
 .markdown-section{
   max-width: var(--content-max-width);
   font-size: var(--base-font-size);
   color: var(--text);
 }
-.markdown-section h1, .markdown-section h2, .markdown-section h3{
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3{
   color: #fff;
   letter-spacing: .2px;
 }
-.markdown-section h1{
-  font-size: 2.2rem;
-}
-.markdown-section h2{
-  font-size: 1.55rem;
-  margin-top: 1.8rem;
-}
+.markdown-section h1{ font-size: 2.35rem; }
+.markdown-section h2{ font-size: 1.65rem; margin-top: 1.9rem; }
+.markdown-section h3{ font-size: 1.25rem; margin-top: 1.3rem; }
+
 .markdown-section p{
   line-height: 1.75;
   color: var(--muted);
 }
-
-.markdown-section a{
-  color: #c7b6ff;
-}
+.markdown-section a{ color: #c7b6ff; }
 .markdown-section strong{ color:#fff; }
 
+/* Quote / callout */
 .markdown-section blockquote{
   border-left: 4px solid var(--brand);
   background: rgba(124,92,255,.08);
@@ -72,30 +69,51 @@ body{
   padding: 12px 14px;
 }
 
+/* Images */
+img{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+/* ===== TABLES: never cut off (final fix) ===== */
+/* Allow the content area to scroll horizontally if needed */
+.content,
+.markdown-section{
+  overflow-x: auto !important;
+}
+
+/* Make table a scroll container */
 .markdown-section table{
-  width: 100%;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+
   border-collapse: separate;
   border-spacing: 0;
-  overflow: hidden;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.03);
 }
-/* ✅ Fix: tables should never be cut off */
-.markdown-section table{
-  display: block;            /* let it overflow properly */
-  max-width: 100%;
-  overflow-x: auto;          /* horizontal scroll when needed */
-  -webkit-overflow-scrolling: touch;
+
+/* Header row */
+.markdown-section thead tr{
+  background: rgba(124,92,255,.14);
 }
 
-/* keep the cells from squishing too much */
-.markdown-section table th,
-.markdown-section table td{
-  white-space: nowrap;       /* prevents ugly wrapping/cropping */
+/* Cells */
+.markdown-section th,
+.markdown-section td{
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  white-space: nowrap; /* 👈 keeps columns readable; change to normal if you want wrapping */
 }
+.markdown-section tr:last-child td{ border-bottom: none; }
 
-/* optional: ensure rounded corners still look good with scroll */
+/* Scrollbar (optional) */
 .markdown-section table{
   scrollbar-width: thin;
 }
@@ -107,23 +125,7 @@ body{
   border-radius: 999px;
 }
 
-.markdown-section thead tr{
-  background: rgba(124,92,255,.14);
-}
-.markdown-section th, .markdown-section td{
-  padding: 12px 12px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.markdown-section tr:last-child td{
-  border-bottom: none;
-}
-
-img{
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 12px 30px rgba(0,0,0,.35);
-}
-
+/* ===== Fancy components (optional HTML blocks in Markdown) ===== */
 .hero{
   border: 1px solid var(--border);
   background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(34,197,94,.10));
@@ -132,6 +134,7 @@ img{
   margin: 16px 0 18px;
 }
 .hero h1{ margin: 0 0 8px; }
+
 .badges{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; }
 .badge{
   display:inline-flex; align-items:center; gap:8px;
@@ -141,6 +144,7 @@ img{
   color: rgba(255,255,255,.85);
   font-size: .92rem;
 }
+
 .grid2{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -164,6 +168,7 @@ img{
   border-radius: 18px;
   padding: 14px 14px;
 }
+
 .kpi{
   display:flex; gap:12px; flex-wrap:wrap;
 }
