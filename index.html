@@ -27,6 +27,23 @@
     white-space: nowrap !important;
   }
  </style>
+<style>
+  /* FORCE compact tables: no huge empty right area */
+  #app .markdown-section { overflow-x: auto !important; }
+
+  #app .markdown-section table{
+    width: auto !important;            /* NOT 100% */
+    max-width: 100% !important;
+    display: inline-table !important;  /* shrink to content width */
+    table-layout: auto !important;
+    margin: 14px auto !important;      /* center */
+  }
+
+  #app .markdown-section th,
+  #app .markdown-section td{
+    white-space: nowrap !important;
+  }
+</style>
 </head>
 <body>
   <div id="app">Loading…</div>
