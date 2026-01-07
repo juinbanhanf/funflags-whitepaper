@@ -8,7 +8,7 @@ FunFlags combines:
 ## Two clocks
 
 | Clock | Value | Meaning |
-|---|---:|---|
+| --- | ---: | --- |
 | Auction decay | 6 minutes | Price linearly decays to 0 from the starting price |
 | Round length | 10 minutes | Tracks SOL spent per flag; updates next-round rates |
 
