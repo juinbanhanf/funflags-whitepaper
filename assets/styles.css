@@ -182,3 +182,29 @@ img{
 }
 .kpi .pill b{ color:#fff; display:block; }
 .kpi .pill span{ color:rgba(255,255,255,.70); font-size:.95rem; }
+/* ===== FIX: remove big empty right panel & stop horizontal offset ===== */
+
+/* Prevent the whole page from shifting horizontally */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* Make Docsify content container not look like a big wide panel */
+.content {
+  max-width: 980px !important;   /* 👈 shrink the container so it hugs content */
+  margin: 0 auto !important;
+  padding-right: 0 !important;
+}
+
+/* Ensure markdown content fills the container */
+.markdown-section{
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-right: 0 !important;
+}
+
+/* Force tables to fill the container */
+.markdown-section table{
+  width: 100% !important;
+  min-width: 100% !important;
+}
