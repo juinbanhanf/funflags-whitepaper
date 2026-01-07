@@ -269,3 +269,21 @@ html, body {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
+/* ===== COMPACT TABLES: shrink-to-content (no huge empty right area) ===== */
+.markdown-section{
+  overflow-x: auto !important;  /* small screens can scroll */
+}
+
+.markdown-section table{
+  width: auto !important;               /* 👈 not 100% */
+  max-width: 100% !important;
+  table-layout: auto !important;        /* let browser size columns by content */
+  display: inline-table !important;     /* shrink to content width */
+  margin: 14px auto !important;         /* center the compact table */
+}
+
+/* keep cells neat */
+.markdown-section th,
+.markdown-section td{
+  white-space: nowrap !important;
+}
