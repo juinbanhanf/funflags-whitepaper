@@ -1,4 +1,20 @@
 <div class="hero">
+  <h1>FunFlags Whitepaper</h1>
+  <p>A fast-paced, auction-based on-chain mining game on Solana.</p>
+
+  <div class="badges">
+    <span class="badge">⚡ 6-min Dutch Auction</span>
+    <span class="badge">⏱ 10-min Rounds</span>
+    <span class="badge">🔥 Buyback & Burn</span>
+    <span class="badge">🧠 Fair Allocation</span>
+  </div>
+
+  <div class="cta">
+    <a class="btn primary" href="#/flag-slots">Read Mechanics</a>
+    <a class="btn ghost" href="#/tokenomics">Tokenomics</a>
+  </div>
+</div>
+<div class="hero">
 
 # FunFlags Whitepaper
 
