@@ -1,8 +1,8 @@
 /* FunFlags Whitepaper — English only (Styled Docs) */
 :root{
-  --base-font-size: 20px;      /* 👈 overall text size */
+  --base-font-size: 20px;      /* overall text size */
   --sidebar-width: 320px;
-  --content-max-width: 1040px;
+  --content-max-width: 1100px;
 
   --brand: #7c5cff;
   --brand2:#22c55e;
@@ -15,7 +15,10 @@
   --muted: rgba(255,255,255,.72);
 }
 
+*{ box-sizing: border-box; }
+
 body{
+  margin: 0;
   background:
     radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.25), transparent 60%),
     radial-gradient(1000px 700px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
@@ -37,12 +40,20 @@ body{
   border-right: 3px solid var(--brand) !important;
 }
 
-/* Content typography */
+/* Center content + remove weird right empty space */
+.content{
+  max-width: var(--content-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 22px 60px !important;
+}
 .markdown-section{
-  max-width: var(--content-max-width);
+  max-width: 100% !important;
   font-size: var(--base-font-size);
   color: var(--text);
+  overflow-x: auto !important; /* enable scroll if needed */
 }
+
+/* Typography */
 .markdown-section h1,
 .markdown-section h2,
 .markdown-section h3{
@@ -60,7 +71,7 @@ body{
 .markdown-section a{ color: #c7b6ff; }
 .markdown-section strong{ color:#fff; }
 
-/* Quote / callout */
+/* Quote */
 .markdown-section blockquote{
   border-left: 4px solid var(--brand);
   background: rgba(124,92,255,.08);
@@ -71,61 +82,52 @@ body{
 
 /* Images */
 img{
+  max-width: 100%;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
 
-/* ===== TABLES: never cut off (final fix) ===== */
-/* Allow the content area to scroll horizontally if needed */
-.content,
-.markdown-section{
-  overflow-x: auto !important;
-}
-
-/* Make table a scroll container */
+/* ===== TABLES (FINAL): fill container, no right empty, scroll on small screens ===== */
 .markdown-section table{
-  display: block !important;
+  display: table !important;
   width: 100% !important;
   max-width: 100% !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  -webkit-overflow-scrolling: touch;
 
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  overflow: visible !important;
 }
 
-/* Header row */
 .markdown-section thead tr{
-  background: rgba(124,92,255,.14);
+  background: rgba(124,92,255,.18) !important;
 }
-
-/* Cells */
 .markdown-section th,
 .markdown-section td{
   padding: 12px 12px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  white-space: nowrap; /* 👈 keeps columns readable; change to normal if you want wrapping */
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.92) !important;
+  font-weight: 500;
+}
+
+.markdown-section tbody tr:nth-child(even){
+  background: rgba(255,255,255,.04) !important;
+}
+.markdown-section tbody tr:hover{
+  background: rgba(124,92,255,.12) !important;
 }
 .markdown-section tr:last-child td{ border-bottom: none; }
 
-/* Scrollbar (optional) */
-.markdown-section table{
-  scrollbar-width: thin;
-}
-.markdown-section table::-webkit-scrollbar{
-  height: 10px;
-}
-.markdown-section table::-webkit-scrollbar-thumb{
-  background: rgba(255,255,255,.18);
-  border-radius: 999px;
+@media (max-width: 900px){
+  .markdown-section th,
+  .markdown-section td{ white-space: nowrap; }
+  .markdown-section table{ min-width: 720px; }
 }
 
-/* ===== Fancy components (optional HTML blocks in Markdown) ===== */
+/* ===== Fancy blocks you can use in Markdown (optional) ===== */
 .hero{
   border: 1px solid var(--border);
   background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(34,197,94,.10));
@@ -180,47 +182,3 @@ img{
 }
 .kpi .pill b{ color:#fff; display:block; }
 .kpi .pill span{ color:rgba(255,255,255,.70); font-size:.95rem; }
-body { outline: 6px solid red !important; }
-:root { --base-font-size: 28px !important; }
-/* ===== FIX: table readability (no white/washed rows) ===== */
-.markdown-section table{
-  background: rgba(255,255,255,.04) !important;
-}
-
-.markdown-section tbody tr{
-  background: rgba(255,255,255,.02) !important;
-}
-
-.markdown-section tbody tr:nth-child(even){
-  background: rgba(255,255,255,.045) !important;
-}
-
-.markdown-section th,
-.markdown-section td{
-  color: rgba(255,255,255,.92) !important;
-}
-
-.markdown-section td{
-  font-weight: 500;
-}
-
-/* hover */
-.markdown-section tbody tr:hover{
-  background: rgba(124,92,255,.12) !important;
-}
-/* ===== FIX: right-side empty space / layout width ===== */
-.content{
-  max-width: var(--content-max-width) !important;
-  margin: 0 auto !important;     /* center */
-  padding-right: 22px !important; /* reduce weird gaps */
-}
-
-.markdown-section{
-  max-width: 100% !important;    /* let content fill .content */
-}
-
-/* prevent horizontal overflow caused by code/img/table */
-.markdown-section,
-.content{
-  box-sizing: border-box !important;
-}
