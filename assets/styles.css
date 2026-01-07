@@ -180,3 +180,5 @@ img{
 }
 .kpi .pill b{ color:#fff; display:block; }
 .kpi .pill span{ color:rgba(255,255,255,.70); font-size:.95rem; }
+body { outline: 6px solid red !important; }
+:root { --base-font-size: 28px !important; }
