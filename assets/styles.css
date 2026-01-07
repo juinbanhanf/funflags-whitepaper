@@ -208,3 +208,29 @@ html, body {
   width: 100% !important;
   min-width: 100% !important;
 }
+/* ===== FIX: table columns must fill the full width (remove inner empty space) ===== */
+.markdown-section table{
+  table-layout: fixed !important;   /* key: make columns fill the table width */
+}
+
+.markdown-section th:nth-child(1),
+.markdown-section td:nth-child(1){
+  width: 16% !important;
+}
+
+.markdown-section th:nth-child(2),
+.markdown-section td:nth-child(2){
+  width: 22% !important;
+}
+
+.markdown-section th:nth-child(3),
+.markdown-section td:nth-child(3){
+  width: 62% !important;            /* last column eats the rest */
+}
+
+/* keep long text readable inside fixed layout */
+.markdown-section td,
+.markdown-section th{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
