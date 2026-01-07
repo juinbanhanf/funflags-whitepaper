@@ -9,43 +9,10 @@
   <!-- Docsify theme (base) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
 
-  <!-- Custom styling -->
-<link rel="stylesheet" href="./assets/styles.css?v=11">
-  <style>
-  /* ===== TABLE FIX (force) ===== */
-  .markdown-section { overflow-x: auto !important; }
-
-  .markdown-section table{
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-  }
-
-  .markdown-section th,
-  .markdown-section td{
-    white-space: nowrap !important;
-  }
- </style>
-<style>
-  /* FORCE compact tables: no huge empty right area */
-  #app .markdown-section { overflow-x: auto !important; }
-
-  #app .markdown-section table{
-    width: auto !important;            /* NOT 100% */
-    max-width: 100% !important;
-    display: inline-table !important;  /* shrink to content width */
-    table-layout: auto !important;
-    margin: 14px auto !important;      /* center */
-  }
-
-  #app .markdown-section th,
-  #app .markdown-section td{
-    white-space: nowrap !important;
-  }
-</style>
+  <!-- Your custom stylesheet -->
+  <link rel="stylesheet" href="./assets/styles.css?v=12">
 </head>
+
 <body>
   <div id="app">Loading…</div>
 
@@ -74,5 +41,30 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+
+  <!-- ✅ FINAL OVERRIDE (MUST BE LAST): compact tables, no huge empty right area -->
+  <style>
+    /* 1) Prevent any horizontal page drift */
+    html, body { overflow-x: hidden !important; }
+
+    /* 2) Allow the docs area to scroll horizontally when necessary (mobile/long text) */
+    #app .markdown-section { overflow-x: auto !important; }
+
+    /* 3) Compact table: shrink-to-content so it won't create a giant empty right space */
+    #app .markdown-section table{
+      width: auto !important;            /* NOT 100% */
+      max-width: 100% !important;
+      display: inline-table !important;  /* shrink to content width */
+      table-layout: auto !important;
+      margin: 14px auto !important;      /* center the compact table */
+    }
+
+    /* 4) Keep cells neat; if you want wrapping, change nowrap -> normal */
+    #app .markdown-section th,
+    #app .markdown-section td{
+      white-space: nowrap !important;
+    }
+  </style>
 </body>
 </html>
+
