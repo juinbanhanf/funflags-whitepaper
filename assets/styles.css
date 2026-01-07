@@ -234,3 +234,38 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* ===== FINAL OVERRIDE: remove the big empty area inside tables ===== */
+
+/* 1) cancel any forced min-width that creates empty right space */
+.markdown-section table{
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+
+  /* 2) force columns to expand and fill the full table width */
+  table-layout: fixed !important;
+}
+
+/* 3) define 3-column layout to always fill 100% */
+.markdown-section th:nth-child(1),
+.markdown-section td:nth-child(1){ width: 18% !important; }
+
+.markdown-section th:nth-child(2),
+.markdown-section td:nth-child(2){ width: 22% !important; }
+
+.markdown-section th:nth-child(3),
+.markdown-section td:nth-child(3){ width: 60% !important; }
+
+/* 4) prevent weird row sizing (some themes mess with this) */
+.markdown-section thead,
+.markdown-section tbody,
+.markdown-section tr{
+  width: 100% !important;
+}
+
+/* 5) if text is long, keep it neat */
+.markdown-section th,
+.markdown-section td{
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
