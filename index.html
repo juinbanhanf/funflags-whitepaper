@@ -10,6 +10,23 @@
 
   <!-- Custom styling -->
   <link rel="stylesheet" href="./assets/styles.css">
+  <style>
+  /* ===== TABLE FIX (force) ===== */
+  .markdown-section { overflow-x: auto !important; }
+
+  .markdown-section table{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  .markdown-section th,
+  .markdown-section td{
+    white-space: nowrap !important;
+  }
+ </style>
 </head>
 <body>
   <div id="app">Loading…</div>
