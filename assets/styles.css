@@ -81,6 +81,32 @@ body{
   border: 1px solid var(--border);
   background: rgba(255,255,255,.03);
 }
+/* ✅ Fix: tables should never be cut off */
+.markdown-section table{
+  display: block;            /* let it overflow properly */
+  max-width: 100%;
+  overflow-x: auto;          /* horizontal scroll when needed */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* keep the cells from squishing too much */
+.markdown-section table th,
+.markdown-section table td{
+  white-space: nowrap;       /* prevents ugly wrapping/cropping */
+}
+
+/* optional: ensure rounded corners still look good with scroll */
+.markdown-section table{
+  scrollbar-width: thin;
+}
+.markdown-section table::-webkit-scrollbar{
+  height: 10px;
+}
+.markdown-section table::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+}
+
 .markdown-section thead tr{
   background: rgba(124,92,255,.14);
 }
