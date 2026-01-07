@@ -1,0 +1,151 @@
+/* FunFlags Whitepaper — English only */
+:root{
+  --base-font-size: 18px;      /* <-- change this to make text bigger/smaller */
+  --sidebar-width: 320px;
+  --content-max-width: 1040px;
+
+  --brand: #7c5cff;
+  --brand2:#22c55e;
+  --bg0: #070A12;
+  --bg1: #0B1020;
+  --card: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.12);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+}
+
+body{
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.25), transparent 60%),
+              radial-gradient(1000px 700px at 80% 20%, rgba(34,197,94,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--text);
+}
+
+.sidebar{
+  background: rgba(10,12,20,.72) !important;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-nav a{
+  color: var(--muted) !important;
+}
+.sidebar-nav a:hover{
+  color: var(--text) !important;
+}
+.sidebar-nav li.active > a{
+  color: #fff !important;
+  border-right: 3px solid var(--brand) !important;
+}
+
+.markdown-section{
+  max-width: var(--content-max-width);
+  font-size: var(--base-font-size);
+  color: var(--text);
+}
+.markdown-section h1, .markdown-section h2, .markdown-section h3{
+  color: #fff;
+  letter-spacing: .2px;
+}
+.markdown-section h1{
+  font-size: 2.2rem;
+}
+.markdown-section h2{
+  font-size: 1.55rem;
+  margin-top: 1.8rem;
+}
+.markdown-section p{
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.markdown-section a{
+  color: #c7b6ff;
+}
+.markdown-section strong{ color:#fff; }
+
+.markdown-section blockquote{
+  border-left: 4px solid var(--brand);
+  background: rgba(124,92,255,.08);
+  color: rgba(255,255,255,.86);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.markdown-section table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.markdown-section thead tr{
+  background: rgba(124,92,255,.14);
+}
+.markdown-section th, .markdown-section td{
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.markdown-section tr:last-child td{
+  border-bottom: none;
+}
+
+img{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+.hero{
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(34,197,94,.10));
+  border-radius: 18px;
+  padding: 18px 18px;
+  margin: 16px 0 18px;
+}
+.hero h1{ margin: 0 0 8px; }
+.badges{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; }
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 8px 10px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.85);
+  font-size: .92rem;
+}
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 920px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+.card{
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  padding: 14px 14px;
+}
+.card h3{ margin-top: 0; }
+
+.callout{
+  border: 1px solid rgba(34,197,94,.30);
+  background: rgba(34,197,94,.10);
+  border-radius: 18px;
+  padding: 14px 14px;
+}
+.kpi{
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.kpi .pill{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.kpi .pill b{ color:#fff; display:block; }
+.kpi .pill span{ color:rgba(255,255,255,.70); font-size:.95rem; }
